@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>过户</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body-owner">
+    <ul class="owen-header flex mt-20 mb-20">
+        <li class="li font-center flex-1">
+            <p class="margin-center-v active"></p>
+            <p class="status">通话验证</p>
+        </li>
+        <li class="li font-center flex-1">
+            <p class="margin-center-v active"></p>
+            <p class="status">户主验证</p>
+        </li>
+        <li class="li font-center flex-1">
+            <p class="active margin-center-v"></p>
+            <p class="status">新用户验证</p>
+        </li>
+    </ul>
+    <form action="" class="form pd-lr-16">
+        <div class="form-wrap mt-20">
+            <p class="opcity-font">旧用户信息</p>
+            <div class="form-item flex" >
+                <label for="name">姓名</label>
+                <input type="text" id="name" class="font-right flex-1" value="王琦琦">
+            </div>
+            <div class="form-item flex" >
+                <label for="gender">性别</label>
+                <input type="text" id="gender" class="font-right flex-1" value="男">
+            </div>
+            <div class="form-item flex" >
+                <label for="nation">民族</label>
+                <input type="text" id="nation" class="font-right flex-1" value="汉">
+            </div>
+            <div class="form-item flex" >
+                <label for="card">证件号码</label>
+                <input type="text" id="card" class="font-right flex-1" value="210105199909097841">
+            </div>
+            <div class="form-item flex" >
+                <label for="address">证件地址</label>
+                <textarea id="address" class="font-right flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
+            </div>
+        </div>
+        <div class="form-wrap mt-20">
+            <p class="opcity-font">新用户信息</p>
+            <div class="form-item flex" >
+                <label for="name2">姓名</label>
+                <input type="text" id="name2" class="font-right flex-1" value="王琦琦">
+            </div>
+            <div class="form-item flex" >
+                <label for="gender2">性别</label>
+                <input type="text" id="gender2" class="font-right flex-1" value="男">
+            </div>
+            <div class="form-item flex" >
+                <label for="nation2">民族</label>
+                <input type="text" id="nation2" class="font-right flex-1" value="汉">
+            </div>
+            <div class="form-item flex" >
+                <label for="card2">证件号码</label>
+                <input type="text" id="card2" class="font-right flex-1" value="210105199909097841">
+            </div>
+            <div class="form-item flex" >
+                <label for="address2">证件地址</label>
+                <textarea id="address2" class="font-right flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
+            </div>
+        </div>
+        <div class="flex flex-hori mt-40 mb-40">
+            <p class="protocal">请确认以上信息，并阅读服务协议，提交即同意<a class="theme-color">《服务协议》</a></p>
+            <input type="submit" class="btn btn-large" value="提交">
+        </div>
+    </form>
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script>
+    let isSelectedObj = {
+        front:false,
+        back:false,
+        full:false,
+    }
+    //文件上传
+    function changeFile(){
+        $('.file-input').on('change',function(changeEvent){
+            let _type = $(this).data('type'),file = this.files[0];
+            // 对type和size做限制
+            // let _sizeObj = ['image/png','image/pdf','image/jpeg','image/jpg'];
+            // if(_sizeObj.indexOf(file.type) == -1)return error_show('图片格式只能为JPG/JPEG/PNG/PDF');
+            // if(file.size>4*Math.pow(1024,2)) return error_show('图片大小不超过4M');
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                $(".id-"+_type).attr("src", e.target.result);
+                // if(_type == 'front') $('.form-wrap').show();
+                isSelectedObj[_type] = true;
+                changeSubmitStyle();
+            }
+        })
+    }
+    // 更改提交按钮状态
+    function changeSubmitStyle(){
+        let result = Object.keys(isSelectedObj).every(item=>isSelectedObj[item] === true)
+        if(result)$('input[type="submit"]').removeAttr('disabled')
+    }
+
+    changeFile();
+    
+    
+    </script>
+</body>
+
+</html>

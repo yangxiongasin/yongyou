@@ -1,0 +1,32 @@
+.body-self .img-wrap img{
+    width: 2.8rem;
+    height: 1.6rem;
+    margin-right: 0.4rem;
+}
+.body-self .img-wrap img:last-child{
+  margin-right: 0;
+}
+.body-owner .owen-header .li{
+  position: relative;
+}
+.body-owner .owen-header .li:after{
+  position: absolute;
+  height: 1px;
+  width: 2rem;
+  left: 2.3rem;
+  top: 0.2rem;
+  content:'';
+  background: rgba(0,0,0,0.09);
+}
+.body-owner .owen-header .li:last-child:after{
+  width: 0;
+}
+.body-owner .owen-header .li .active{
+    background: url("../../images/icon-check@2x.png") center center no-repeat;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-size: cover;
+}
+.body-owner .owen-header .status{
+  font-size: 0.4rem;
+}

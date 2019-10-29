@@ -1,0 +1,37 @@
+.body-deposit .form-select .li{
+    border: 1px solid rgba(232,233,234,1);
+    text-align: center;
+    border-radius: 2px;
+    color: #656667;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+.body-deposit .form-select .li:nth-child(3n){
+    margin-right: 0;
+}
+.body-deposit .form-select .li s{
+    background: url("../../images/icon-check-hook@2x.png") center center no-repeat;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    display: none;
+}
+.body-deposit .form-select .li input{
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    width: 90%;
+    text-align: center;
+    color: #656667;
+    border: 0;
+}
+.body-deposit .form-select .li.active{
+    border: 2px solid rgba(241,10,2,1);
+}
+.body-deposit .form-select .li.active s{
+    display: block;
+}

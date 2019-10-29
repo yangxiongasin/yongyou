@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>自助返档</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body-trans">
+    <form action="" class="form">
+        <div class="form-wrap">
+            <div class="form-item flex" >
+                <label for="phone">手机号码</label>
+                <input type="number" id="phone" placeholder="请输入手机号码" class="font-right flex-1">
+            </div>
+            <div class="form-item flex" >
+                <label for="puk">puk</label>
+                <input type="number" id="puk" placeholder="请输入puk" class="font-right flex-1">
+            </div>
+        </div>
+        <div class="pd-lr-10 flex mt-20">
+            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled">
+        </div>
+    </form>
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script>
+        let params = {
+            tel:'',
+            puk:'',
+        },_submit = $('input[type="submit"]');
+        
+        $('#phone').on('keyup',function(){
+            params.tel = $(this).val();
+            changeSubmitStyle();
+        })
+        $('#puk').on('keyup',function(){
+            params.puk = $(this).val();
+            changeSubmitStyle();
+        })
+        function changeSubmitStyle(){
+            let _disableValue = _submit.attr('disabled')
+            if(params&&params.tel&&params.puk&&_disableValue) _submit.removeAttr('disabled');
+            if((!params.tel||!params.puk)&&!_disableValue)_submit.attr('disabled','disabled');
+        }
+    </script>
+</body>
+
+</html>

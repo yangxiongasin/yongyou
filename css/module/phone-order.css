@@ -1,0 +1,37 @@
+
+
+.identity-img .img-wrap{
+    position: relative;
+    border: 1px dashed rgba(239,235,238,1);
+  }
+.identity-img .img-wrap strong{
+      font-size: 0.4rem;
+      width: 100%;
+      background-color: rgb(249,249,249);
+      padding: 3px 0;
+  }
+.identity-img .img-wrap .id-img{
+    height:2.8rem;
+    width:4.4rem;
+    margin: 0 auto;
+    border-radius: 4px;
+    margin-top: 0.6rem;
+  }
+.identity-img .img-wrap p{
+      font-size: 0.3rem;
+      margin: 0.3rem 0 0.3rem 0;
+  }
+.identity-img .img-wrap .file-input{
+    height:2.8rem;
+    width:4.4rem;
+    position: absolute;
+    top: 1.4rem;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+.protocal{
+      font-size: 0.3rem;
+      align-self: flex-start;
+      margin-bottom: 4px;
+  }

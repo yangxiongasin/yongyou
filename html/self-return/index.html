@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>自助返档</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body-self">
+    <form action="" class="form">
+        <div class="form-wrap">
+            <div class="form-item flex" >
+                <label for="phone">服务号码</label>
+                <input type="number" id="phone" placeholder="请输入手机号码" class="font-left flex-1">
+                <button class="btn btn-form mr-10" id="searchBtn" disabled>查询</button>
+            </div>
+        </div>
+        <div id="self-info" class="hidden">
+            <div class="form-wrap mt-20">
+                <p class="opcity-font">顾客信息</p>
+                <div class="form-item flex" >
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" class="font-right flex-1" value="王琦琦">
+                </div>
+                <div class="form-item flex" >
+                    <label for="gender">性别</label>
+                    <input type="text" id="gender" class="font-right flex-1" value="男">
+                </div>
+                <div class="form-item flex" >
+                    <label for="nation">民族</label>
+                    <input type="text" id="nation" class="font-right flex-1" value="汉">
+                </div>
+                <div class="form-item flex" >
+                    <label for="card">证件号码</label>
+                    <input type="text" id="card" class="font-right flex-1" value="210105199909097841">
+                </div>
+                <div class="form-item flex" >
+                    <label for="address">证件地址</label>
+                    <textarea id="address" class="font-right flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
+                </div>
+            </div>
+            <div class="flex img-wrap mt-10">
+                <img src="../../images/404@2x.png" alt="">
+                <img src="../../images/500@2x.png" alt="">
+                <img src="../../images/404@2x.png" alt="">
+            </div>
+            <div class="pd-lr-10 flex mt-40">
+                <input type="submit" class="btn btn-large" value="下一步">
+            </div>
+        </div>
+    </form>
+
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script>
+        let params = {
+            tel:'',
+            tel2:'',
+            price:0
+        },_submit = $('input[type="submit"]'),_search = $('#searchBtn');
+
+        _search.on('click',function(e){
+            $('#self-info').show();
+            return false;
+            
+        })
+        $('#phone').on('keyup',function(){
+            params.tel = $(this).val();
+            changeSearchStyle();
+        })
+
+        function changeSearchStyle(){
+            let _disableValue = _search.attr('disabled')
+            if(params&&params.tel&&_disableValue) _search.removeAttr('disabled');
+            if(!params.tel&&!_disableValue)_search.attr('disabled','disabled');
+        }
+    </script>
+</body>
+
+</html>

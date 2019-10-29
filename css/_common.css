@@ -1,0 +1,150 @@
+/* base */
+.theme-color{
+    color:#F10A02
+}
+.theme-bg{
+    background:linear-gradient(270deg,rgba(254,79,24,1) 0%,rgba(240,5,1,1) 100%);
+    border:1px solid rgba(240,5,1,1)!important;
+    color: #fff;;
+}
+.flex{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.flex-hori{
+    flex-direction: column;
+}
+.flex-1{
+    flex: 1;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.hidden{
+    display: none;
+}
+.show{
+    display: block
+}
+.over-hidden{
+    overflow: hidden;
+}
+.pd-lr-10{
+    padding: 0 0.3rem;
+}
+.pd-lr-16{
+    padding: 0 0.4rem;
+}
+.mr-10{
+    margin-right: 0.3rem;
+}
+.m-tb-16{
+    margin: 0.4rem 0;
+}
+.mt-10{
+    margin-top: 0.3rem;
+}
+.mt-20{
+    margin-top: 0.5rem;
+}
+.mb-20{
+    margin-bottom: 0.5rem;
+}
+.mt-40{
+    margin-top: 1rem;
+}
+.mb-40{
+    margin-bottom: 1rem;
+}
+.opcity-font{
+    opacity: 0.45;
+}
+.margin-center-v{
+    margin: 0 auto;
+}
+.circle{
+    height: 0.5rem;
+    width: 0.5rem;
+    font-size: 0.4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    line-height: 0.4rem;
+     border: 1px solid #ccc;;
+}
+/* btn */
+.btn{
+    background:linear-gradient(270deg,rgba(254,79,24,1) 0%,rgba(240,5,1,1) 100%);
+    box-shadow:0px 3px 9px 0px rgba(243,47,40,0.5);
+    border-radius:4px;
+    color: #fff;
+    height: 1.3rem;
+    font-size: 0.5rem;
+    width: 100%;
+}
+.btn-small{
+    width: 1.6rem;
+    height: 0.8rem;
+}
+.btn-primary{
+    width: 4.3rem;
+    letter-spacing: 2px;
+}
+.btn-large{
+    width: 100%;
+    letter-spacing: 4px;
+}
+
+/* font */
+.font{
+    font-size: 0.5rem;
+}
+.font-center{
+    text-align: center;
+}
+.font-right{
+    text-align: right;
+}
+.font-left{
+    text-align: left;
+}
+.font-weight{
+    font-weight: bold;
+}
+/* form */
+.form-wrap{
+    padding-left: 0.3rem;
+}
+.form .form-item{
+   position: relative;
+   padding: 0.3rem 0;
+   border-bottom: 1px solid rgba(0,0,0,0.09);
+}
+.form .form-item label{
+    font-size: 0.4rem;
+    min-width: 2rem;
+}
+.form .form-item input,
+.form .form-item textarea{
+    font-size: 0.4rem;
+    padding-right: 0.3rem;
+    line-height: 0.6rem;
+}
+button:disabled,
+input:disabled{
+    background:linear-gradient(270deg,rgba(254,79,24,1) 0%,rgba(240,5,1,1) 100%);
+    box-shadow:0px 3px 9px 0px rgba(243,47,40,0.5);
+    opacity: 0.3;
+}
+.form .form-item .btn-form{
+    font-size: 0.4rem;
+    height: 0.8rem;
+}
+/* .mw-100{
+    min-width: 100px;
+} */
+

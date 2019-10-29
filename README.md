@@ -1,0 +1,10 @@
+# js js文件
+# css css文件
+# images 图片以及icon资源
+# html html文件
+  ## 404.html 500.html
+  ## deposit 充值
+  ## phone-order 电话预约
+  ## phone-trans 绑定电话号码/解绑电话号码
+  ## ownership-trans 过户
+  ## self-return 自助返档

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>过户</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body-owner">
+    <form action="" class="form">
+        <ul class="owen-header flex mt-20 mb-20">
+            <li class="li font-center flex-1">
+                <p class="theme-bg circle margin-center-v">1</p>
+                <p class="status">通话验证</p>
+            </li>
+            <li class="li font-center flex-1">
+                <p class="circle opcity-font margin-center-v">2</p>
+                <p class="status opcity-font">户主验证</p>
+            </li>
+            <li class="li font-center flex-1">
+                <p class="circle opcity-font margin-center-v">3</p>
+                <p class="status opcity-font">新用户验证</p>
+            </li>
+        </ul>
+        <div class="form-wrap">
+            <div class="form-item flex" >
+                <label for="phone" class="flex-1">过户号码</label>
+                <input type="number" id="phone" placeholder="请输入过户手机号码" class="font-right">
+            </div>
+        </div>
+        <div class="form-wrap">
+            <p class="opcity-font mt-10">近90天主叫通话号码</p>
+            <div class="form-item flex" >
+                <label for="phone1" class="flex-1">号码一<i class="theme-color">*</i></label>
+                <input type="number" id="phone1" placeholder="请输入号码一" class="font-right">
+            </div>
+            <div class="form-item flex" >
+                <label for="phone2" class="flex-1">号码二<i class="theme-color">*</i></label>
+                <input type="number" id="phone2" placeholder="请输入号码二" class="font-right">
+            </div>
+            <div class="form-item flex" >
+                <label for="phone3" class="flex-1">号码三<i class="theme-color">*</i></label>
+                <input type="number" id="phone3" placeholder="请输入号码三" class="font-right">
+            </div>
+        </div>
+        <div class="pd-lr-10 flex mt-20">
+            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled">
+        </div>
+    </form>
+
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script>
+        let params = {
+            tel:'',
+            tel1:'',
+            tel2:'',
+            tel3:'',
+        },_submit = $('input[type="submit"]');
+        
+        $('#phone').on('keyup',function(){
+            params.tel = $(this).val();
+            changeSubmitStyle();
+        })
+        $('#phone1').on('keyup',function(){
+            params.tel1 = $(this).val();
+            changeSubmitStyle();
+        })
+        $('#phone2').on('keyup',function(){
+            params.tel2 = $(this).val();
+            changeSubmitStyle();
+        })
+        $('#phone3').on('keyup',function(){
+            params.tel3 = $(this).val();
+            changeSubmitStyle();
+        })
+        function changeSubmitStyle(){
+            let _disableValue = _submit.attr('disabled')
+            if(params&&params.tel&&params.tel1&&params.tel2&&params.tel3&&_disableValue) _submit.removeAttr('disabled');
+            if((!params.tel|| !params.tel1 || !params.tel2 || !params.tel3)&&!_disableValue)_submit.attr('disabled','disabled');
+        }
+    </script>
+
+</body>
+
+</html>

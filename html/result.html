@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="body-result">
+    <div class="flex flex-hori">
+        <div class="img-wrap">
+            <img src="../images/icon-success@2x.png" alt="">
+        </div>  
+        <div class="result-wrap font-center">
+            <p id="result-topic"></p>
+            <p id="result-msg"></p>
+            <p id="result-subMsg" class="theme-color mt-10"></p>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 120px;">返回首页</button>
+    </div>
+
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/_common.js"></script>
+
+    <script>
+    // 设置document的title和页面元素值
+    function setText(obj){
+        document.title = obj&&obj.title;
+        $('#result-topic').html(obj&&obj.topic);
+        $('#result-msg').html(obj&&obj.msg);
+        $('#result-subMsg').html(obj&&obj.subMsg)
+    }
+    //根据url参数设置当前页面
+    function handle(){
+        let params = getRequest();
+        if(params&&params.type){
+            let obj = {
+                deposit:{title:'充值成功',topic:'恭喜您',msg:'本次交易支付成功',subMsg:'654681209'},//充值
+                order:{title:'预约号码成功',topic:'恭喜您',msg:'预约提交成功',subMsg:'请耐心等待工作人员审核'},//号码预约
+                phoneBind:{title:'绑定电话号码成功',topic:'恭喜您',msg:'绑定号码成功！',subMsg:''},//绑定号码
+                phoneUnbind:{title:'解绑电话号码成功',topic:'恭喜您',msg:'解绑号码成功',subMsg:''}, //解绑号码  
+            }
+            try{
+                setText(obj[params.type])
+            }catch(e){
+                console.log(e)
+            }
+        }
+    }
+
+    handle();
+    
+    </script>
+</body>
+
+</html>
