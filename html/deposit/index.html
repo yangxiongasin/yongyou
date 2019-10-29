@@ -36,7 +36,7 @@
                 <li class="flex-1 li" data-price="500"><input type="text" value="500元" readonly><s></s></li>
                 <li class="flex-1 li" data-return=“true”><input type="text" placeholder="其他金额" id="price-other"><s></s></li>
             </ul>
-            <p>实缴金额<span></span>元</p>
+            <p class="text-12">实缴金额：<span id="price" class="theme-color"></span>元</p>
         </div>
         <div class="pd-lr-10 flex">
             <input type="submit" class="btn btn-large" value="充值" disabled="disabled">
@@ -56,6 +56,7 @@
             if(!($(this).hasClass('active'))) $(this).addClass('active');
             if($(this).data('return')) return;
             params.price = $(this).data('price');
+            $('#price').html(params.price);
             changeSubmitStyle();
         })
         $('#phone2').on('keyup',function(){
@@ -67,6 +68,7 @@
         })
         $('#price-other').on('keyup',function(){
             params.price = $(this).val();
+            $('#price').html(params.price);
             changeSubmitStyle();
         })
         function changeSubmitStyle(){
