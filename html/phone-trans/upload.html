@@ -13,19 +13,19 @@
                 <div class="identity-img mb-40">
                     <div class="img-wrap img-front flex flex-hori m-tb-16">
                         <strong class="font-center">请上传身份证正面照</strong>
-                        <img class="id-img id-front" src="../../images/card-front@2x.png" />
+                        <div class="id-img-wrap flex"><img class="id-img id-front" src="../../images/card-front@2x.png" /></div>
                         <p>拍摄时确保身份证边框完整，字体清晰，亮度均匀</p>
                         <input type="file" accept="image/*" mutiple="mutiple" class="file-input uploads" data-type="front"/>
                     </div>
                     <div class="img-wrap img-back flex flex-hori m-tb-16">
                         <strong class="font-center">请上传身份证背面照</strong>
-                        <img class="id-img id-back" src="../../images/card-back@2x.png"/>
+                        <div class="id-img-wrap flex"><img class="id-img id-back" src="../../images/card-back@2x.png"/></div>
                         <p>拍摄时确保身份证边框完整，字体清晰，亮度均匀</p>
                         <input type="file" accept="image/*" mutiple="mutiple" class="file-input uploads" data-type="back"/>
                     </div>
                     <div class="img-wrap img-full flex flex-hori m-tb-16">
                         <strong class="font-center">请上传手持身份证照片</strong>
-                        <img class="id-img id-full" src="../../images/card-full@2x.png"/>
+                        <div class="id-img-wrap flex"><img class="id-img id-full" src="../../images/card-full@2x.png"/></div>
                         <p>拍摄时确保身份证边框完整，字体清晰，亮度均匀</p>
                         <input type="file" accept="image/*" mutiple="mutiple" class="file-input uploads" data-type="full"/>
                     </div>
@@ -34,28 +34,28 @@
                     <p class="opcity-font text-16">用户实名信息</p>
                     <div class="form-item flex" >
                         <label for="name">姓名</label>
-                        <input type="text" id="name" class="font-right flex-1" value="王琦琦">
+                        <input type="text" id="name" class="font-left flex-1" value="王琦琦">
                     </div>
                     <div class="form-item flex" >
                         <label for="gender">性别</label>
-                        <input type="text" id="gender" class="font-right flex-1" value="男">
+                        <input type="text" id="gender" class="font-left flex-1" value="男">
                     </div>
                     <div class="form-item flex" >
                         <label for="nation">民族</label>
-                        <input type="text" id="nation" class="font-right flex-1" value="汉">
+                        <input type="text" id="nation" class="font-left flex-1" value="汉">
                     </div>
                     <div class="form-item flex" >
                         <label for="card">证件号码</label>
-                        <input type="text" id="card" class="font-right flex-1" value="210105199909097841">
+                        <input type="text" id="card" class="font-left flex-1" value="210105199909097841" readonly>
                     </div>
                     <div class="form-item flex" >
                         <label for="address">证件地址</label>
-                        <textarea id="address" class="font-right flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
+                        <textarea id="address" class="font-left flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
                     </div>
                 </div>
                 <div class="flex flex-hori mt-40 mb-40">
-                    <p class="protocal">请确认以上信息，并阅读服务协议，提交即同意<a class="theme-color">《服务协议》</a></p>
-                    <input type="submit" class="btn btn-large" value="提交">
+                    <p class="protocal"><span class="span-op">请确认以上信息，并阅读服务协议，提交即同意</span><a class="theme-color">《服务协议》</a></p>
+                    <input type="submit" class="btn btn-large" value="提交" onclick="return false;">
                 </div>
             </form>
             <script src="../../js/jquery-1.11.1.min.js"></script>

@@ -21,10 +21,11 @@
             </div>
         </div>
         <div class="pd-lr-10 flex mt-20">
-            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled">
+            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled" onclick="return false;">
         </div>
     </form>
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>    
     <script>
         let params = {
             tel:'',
@@ -44,6 +45,10 @@
             if(params&&params.tel&&params.puk&&_disableValue) _submit.removeAttr('disabled');
             if((!params.tel||!params.puk)&&!_disableValue)_submit.attr('disabled','disabled');
         }
+        _submit.on('click',function(){
+            matchPhone(params.tel).then(()=>{
+            })
+        })
     </script>
 </body>
 

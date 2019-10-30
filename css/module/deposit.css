@@ -16,7 +16,7 @@
     height: 0.5rem;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     background-size: cover;
     display: none;
 }
@@ -34,4 +34,7 @@
 }
 .body-deposit .form-select .li.active s{
     display: block;
+}
+body{
+    padding-top: 10px;
 }

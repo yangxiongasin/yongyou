@@ -18,19 +18,20 @@
             <div class="form-item flex" >
                 <label for="card">证件号码</label>
                 <input type="number" id="card" placeholder="请输入证件号码" class="font-left flex-1 minw-165">
-                <button class="btn btn-form mr-10" disabled="disabled" id="varCard">检验身份信息</button>
+                <button class="btn btn-form mr-10" disabled="disabled" id="varCard" onclick="checkCard(this);return false;">检验身份信息</button>
             </div>
             <div class="form-item flex" >
                 <label for="code">验证码</label>
                 <input type="number" id="code" placeholder="请输入验证码" class="font-left flex-1 minw-165">
-                <button class="btn btn-form mr-10" id="verCode" disabled="disabled">获取验证码</button>
+                <button class="btn btn-form mr-10" id="verCode" disabled="disabled" onclick="return false;">获取验证码</button>
             </div>
         </div>
         <div class="pd-lr-10 flex mt-20">
-            <input type="submit" class="btn btn-large" value="立即绑定" disabled="disabled">
+            <input type="submit" class="btn btn-large" value="立即绑定" disabled="disabled" onclick="return false;">
         </div>
     </form>
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>
     <script>
         let params = {
             tel:'',
@@ -44,17 +45,30 @@
         })
         $('#card').on('keyup',function(){
             params.card = $(this).val();
-            changeCodeStyle();
+            changeCardtyle();
         })
         $('#code').on('keyup',function(){
             params.code = $(this).val();
             changeSubmitStyle();
         })
-
+        // 点击验证身份
+        function checkCard(conx){
+            Promise.all([matchPhone(params.tel),matchCode(params.card)]).then(()=>{
+                changeCodeStyle();
+                return false;
+            })
+        }
+        //点击发送验证码
+        _code.on('click',function(){
+            const that = $(this);
+            // 执行完发送验证码OK后执行以下方法
+            getCode(params.tel,that);
+            return false;
+        })
         function changeCardtyle(){
             let _disableValue = _card.attr('disabled');
-            if(params&&params.tel&&_disableValue) _card.removeAttr('disabled');
-            if(!params.tel&&!_disableValue)_card.attr('disabled','disabled');
+            if(params&&params.tel&&params.card&&_disableValue) _card.removeAttr('disabled');
+            if((!params.tel || !params.card)&&!_disableValue)_card.attr('disabled','disabled');
         }
         function changeCodeStyle(){
             let _disableValue = _code.attr('disabled');

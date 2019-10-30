@@ -16,7 +16,7 @@
                 <input type="number" id="phone" placeholder="请输入手机号码" class="font-right">
             </div>
             <div class="form-item flex">
-                <label for="phone2" class="flex-1">充值号码</label>
+                <label for="phone2" class="flex-1">确认号码</label>
                 <input type="number	" id="phone2" placeholder="请确认充值号码" class="font-right">
             </div>
         </div>
@@ -39,10 +39,11 @@
             <p class="text-12">实缴金额：<span id="price" class="theme-color"></span>元</p>
         </div>
         <div class="pd-lr-10 flex">
-            <input type="submit" class="btn btn-large" value="充值" disabled="disabled">
+            <input type="submit" class="btn btn-large" value="充值" disabled="disabled" onclick="return false;">
         </div>
     </form>
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>
     <script>
         let params = {
             tel:'',
@@ -61,21 +62,30 @@
         })
         $('#phone2').on('keyup',function(){
             params.tel2 = $(this).val();
+            changeSubmitStyle();
         })
         $('#phone').on('keyup',function(){
             params.tel = $(this).val();
             changeSubmitStyle();
         })
         $('#price-other').on('keyup',function(){
-            params.price = $(this).val();
+            let _price =  $(this).val();
+//             params.price = _price?parseFloat(_price).toFixed(2):0;
+            params.price = _price;
             $('#price').html(params.price);
             changeSubmitStyle();
         })
+        _submit.on('click',function(){
+            matchPhone(params.tel).then(()=>{
+                if(params.tel != params.tel2) {alert('两次号码不同，请检查后重新输入');return false; }
+            })
+        })
         function changeSubmitStyle(){
             let _disableValue = _submit.attr('disabled')
-            if(params&&params.tel&&params.price&&_disableValue) _submit.removeAttr('disabled');
-            if((!params.tel||!params.price)&&!_disableValue)_submit.attr('disabled','disabled');
+            if(params&&params.tel&&params.tel2&&params.price&&_disableValue) _submit.removeAttr('disabled');
+            if((!params.tel||!params.tel2||!params.price)&&!_disableValue)_submit.attr('disabled','disabled');
         }
+        
     </script>
 </body>
 

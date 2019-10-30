@@ -14,7 +14,7 @@
             <div class="form-item flex" >
                 <label for="phone">服务号码</label>
                 <input type="number" id="phone" placeholder="请输入手机号码" class="font-left flex-1">
-                <button class="btn btn-form mr-10" id="searchBtn" disabled>查询</button>
+                <button class="btn btn-form mr-10" id="searchBtn" disabled onclick="return false">查询</button>
             </div>
         </div>
         <div id="self-info" class="hidden">
@@ -22,23 +22,23 @@
                 <p class="opcity-font text-16">顾客信息</p>
                 <div class="form-item flex" >
                     <label for="name">姓名</label>
-                    <input type="text" id="name" class="font-right flex-1" value="王琦琦">
+                    <input type="text" id="name" class="font-left flex-1" value="王琦琦">
                 </div>
                 <div class="form-item flex" >
                     <label for="gender">性别</label>
-                    <input type="text" id="gender" class="font-right flex-1" value="男">
+                    <input type="text" id="gender" class="font-left flex-1" value="男">
                 </div>
                 <div class="form-item flex" >
                     <label for="nation">民族</label>
-                    <input type="text" id="nation" class="font-right flex-1" value="汉">
+                    <input type="text" id="nation" class="font-left flex-1" value="汉">
                 </div>
                 <div class="form-item flex" >
                     <label for="card">证件号码</label>
-                    <input type="text" id="card" class="font-right flex-1" value="210105199909097841">
+                    <input type="text" id="card" class="font-left flex-1" value="210105199909097841" readonly>
                 </div>
                 <div class="form-item flex" >
                     <label for="address">证件地址</label>
-                    <textarea id="address" class="font-right flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
+                    <textarea id="address" class="font-left flex-1">辽宁省沈阳市于洪区芙蓉山路百花小区7-3 342</textarea>
                 </div>
             </div>
             <div class="flex img-wrap mt-10">
@@ -47,12 +47,13 @@
                 <img src="../../images/404@2x.png" alt="">
             </div>
             <div class="pd-lr-10 flex mt-40">
-                <input type="submit" class="btn btn-large" value="下一步">
+                <input type="submit" class="btn btn-large" value="下一步" onclick="return false;">
             </div>
         </div>
     </form>
 
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>    
     <script>
         let params = {
             tel:'',
@@ -61,9 +62,10 @@
         },_submit = $('input[type="submit"]'),_search = $('#searchBtn');
 
         _search.on('click',function(e){
-            $('#self-info').show();
-            return false;
-            
+            matchPhone([params.tel,params.tel2]).then(()=>{
+                $('#self-info').show();
+                return false;
+            })
         })
         $('#phone').on('keyup',function(){
             params.tel = $(this).val();

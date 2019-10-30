@@ -10,16 +10,26 @@
       background-color: rgb(249,249,249);
       padding: 3px 0;
   }
-.identity-img .img-wrap .id-img{
-    height:2.8rem;
+  .identity-img .img-wrap .id-img-wrap{
+    height:2.82rem;
     width:4.4rem;
     margin: 0 auto;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     margin-top: 0.6rem;
+    border:1px dashed #EFEBEE;
+  }
+.identity-img .img-wrap .id-img{
+    height:2.8rem;
+    width:auto;
+    margin: 0 auto;
+    border-radius: 4px;
+    /* margin-top: 0.6rem; */
+    border:1px dashed #EFEBEE;
   }
 .identity-img .img-wrap p{
       font-size: 0.3rem;
       margin: 0.3rem 0 0.3rem 0;
+      opacity: 0.65;
   }
 .identity-img .img-wrap .file-input{
     height:2.8rem;

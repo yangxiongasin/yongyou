@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="form-wrap">
-            <p class="opcity-font mt-10">近90天主叫通话号码</p>
+            <p class="opcity-font mt-10 text-16">近90天主叫通话号码</p>
             <div class="form-item flex" >
                 <label for="phone1" class="flex-1">号码一<i class="theme-color">*</i></label>
                 <input type="number" id="phone1" placeholder="请输入号码一" class="font-right">
@@ -46,11 +46,12 @@
             </div>
         </div>
         <div class="pd-lr-10 flex mt-20">
-            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled">
+            <input type="submit" class="btn btn-large" value="下一步" disabled="disabled" onclick="return false;">
         </div>
     </form>
 
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>    
     <script>
         let params = {
             tel:'',
@@ -80,6 +81,12 @@
             if(params&&params.tel&&params.tel1&&params.tel2&&params.tel3&&_disableValue) _submit.removeAttr('disabled');
             if((!params.tel|| !params.tel1 || !params.tel2 || !params.tel3)&&!_disableValue)_submit.attr('disabled','disabled');
         }
+        _submit.on('click',function(){
+            let _arr = []
+            Object.keys(params).map(item=>{_arr.push(params[item])})
+            matchPhone(_arr).then(()=>{
+            })
+        })
     </script>
 
 </body>

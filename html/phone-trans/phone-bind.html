@@ -22,10 +22,11 @@
             </div>
         </div>
         <div class="pd-lr-10 flex mt-20">
-            <input type="submit" class="btn btn-large" value="立即绑定" disabled="disabled">
+            <input type="submit" class="btn btn-large" value="立即绑定" disabled="disabled" onclick="return false">
         </div>
     </form>
     <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/_common.js"></script>
     <script>
         let params = {
             tel:'',
@@ -40,7 +41,12 @@
             params.code = $(this).val();
             changeSubmitStyle();
         })
-
+        _code.on('click',function(){
+            const that = $(this);
+            // 执行完发送验证码OK后执行以下方法
+            getCode(params.tel,that);
+            return false;
+        })
         function changeCodeStyle(){
             let _disableValue = _code.attr('disabled');
             if(params&&params.tel&&_disableValue) _code.removeAttr('disabled');
